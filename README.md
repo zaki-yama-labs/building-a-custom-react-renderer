@@ -1,4 +1,72 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React Conf 2019: Building a Custom React Renderer | Sophie Alpert
+=================================================================
+
+https://www.youtube.com/watch?v=CGpMlWVcHok
+
+The entry point of ReactDOMMini.js is:
+
+```js
+let reconciler = ReactReconciler({
+  /* configuration for how to talk to the host env */
+  /* aka "host config" */
+  supportsMutation: true,
+
+  createInstance(
+    type,
+    props,
+    rootContainerInstance,
+    hostContext,
+    internalInnstanceHandle,
+  ) {},
+
+  createTextInstance(
+    text,
+    rootContainerInstance,
+    hostContext,
+    internalInnstanceHandle,
+  ) {},
+    
+  appendChildToContainer(container, child) {},
+  appendChild(parent, child) {}
+  appendInitialChild(parent, child) {},
+
+  removeChildFromContainer(container, child) {},
+  removeChild(parent, child) {},
+  insertInContainerBefore(container, child, before) {},
+  insertBefore(parent, child, before) {},
+
+  prepareUpdate(
+    instance,
+    type,
+    oldProps,
+    newProps,
+    rootContainerInstance,
+    currentHostContext,
+  ) {},
+  commitUpdate(
+    instance,
+    uploadPayload,
+    type,
+    oldProps,
+    newProps,
+    finishedWork,
+  ) {},
+
+  finalizeInitialChildren() {},
+  getChildHostContext() {},
+  getPublicInstance() {},
+  getRootHostContext() {},
+  prepareForCommit() {},
+  resetAfterCommit() {},
+  shouldSetTextContent() {
+    return false;
+  }
+});
+```
+
+---
+
+ This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
