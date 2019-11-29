@@ -20,6 +20,11 @@ let reconciler = ReactReconciler({
     if (props.onClick) {
       el.addEventListener('click', props.onClick);
     }
+
+    if (props.bgColor) {
+      el.style.backgroundColor = props.bgColor;
+    }
+
     return el;
   },
 
@@ -70,7 +75,13 @@ let reconciler = ReactReconciler({
     newProps,
     rootContainerInstance,
     currentHostContext,
-  ) {},
+  ) {
+    let payload;
+    if (oldProps.bgColor !== newProps.bgColor) {
+      payload = { newBgColor: newProps.bgColor };
+    }
+    return payload;
+  },
   commitUpdate(
     instance,
     uploadPayload,
@@ -78,7 +89,11 @@ let reconciler = ReactReconciler({
     oldProps,
     newProps,
     finishedWork,
-  ) {},
+  ) {
+    if (uploadPayload.newBgColor) {
+      instance.style.backgroundColor = uploadPayload.newBgColor;
+    }
+  },
 
   finalizeInitialChildren() {},
   getChildHostContext() {},
