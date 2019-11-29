@@ -27,6 +27,20 @@ let reconciler = ReactReconciler({
     return document.createTextNode(text);
   },
     
+  appendChildToContainer(container, child) {
+    console.log('appendChildToContainer', container, child);
+    container.appendChild(child);
+  },
+
+  appendChild(parent, child) {
+    console.log('appendChild', parent, child);
+  },
+
+  appendInitialChild(parent, child) {
+    console.log('appendInitialChild', parent, child);
+    parent.appendChild(child);
+  },
+
   getRootHostContext() {},
 
   prepareForCommit() {},
@@ -34,8 +48,6 @@ let reconciler = ReactReconciler({
 
   getChildHostContext() {},
 
-  appendChildToContainer() {},
-  appendInitialChild() {},
   finalizeInitialChildren() {},
 
   shouldSetTextContent() {
