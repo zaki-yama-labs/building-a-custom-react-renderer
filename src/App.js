@@ -7,7 +7,6 @@ function App() {
 
   return (
     <div className="App" onClick={() => {
-      alert('hi');
       setShowLogo(show => !show)}
     }>
       <header className="App-header">

@@ -46,16 +46,48 @@ let reconciler = ReactReconciler({
     parent.appendChild(child);
   },
 
-  getRootHostContext() {},
+  removeChildFromContainer(container, child) {
+    console.log('removeChildFromContainer', container, child);
+    container.removeChild(child);
+  },
+  removeChild(parent, child) {
+    console.log('removeChild', parent, child);
+    parent.removeChild(child);
+  },
+  insertInContainerBefore(container, child, before) {
+    console.log('insertInContainerBefore', container, child);
+    container.insertBefore(child, before);
+  },
+  insertBefore(parent, child, before) {
+    console.log('insertBefore', parent, child);
+    parent.insertBefore(child, before);
+  },
 
-  prepareForCommit() {},
-  resetAfterCommit() {},
-
-  getChildHostContext() {},
+  prepareUpdate(
+    instance,
+    type,
+    oldProps,
+    newProps,
+    rootContainerInstance,
+    currentHostContext,
+  ) {},
+  commitUpdate(
+    instance,
+    uploadPayload,
+    type,
+    oldProps,
+    newProps,
+    finishedWork,
+  ) {},
 
   finalizeInitialChildren() {},
-
+  getChildHostContext() {},
+  getPublicInstance() {},
+  getRootHostContext() {},
+  prepareForCommit() {},
+  resetAfterCommit() {},
   shouldSetTextContent() {
+    return false;
   }
 });
 
