@@ -23,7 +23,9 @@ let reconciler = ReactReconciler({
     rootContainerInstance,
     hostContext,
     internalInnstanceHandle,
-  ) {},
+  ) {
+    return document.createTextNode(text);
+  },
     
   getRootHostContext() {},
 
