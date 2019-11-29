@@ -12,7 +12,10 @@ let reconciler = ReactReconciler({
     hostContext,
     internalInnstanceHandle,
   ) {
-    console.log(type, props);
+    let el = document.createElement(type);
+    if (props.className) el.className = props.className;
+    if (props.src) el.src = props.src;
+    return el;
   },
 
   createTextInstance(
